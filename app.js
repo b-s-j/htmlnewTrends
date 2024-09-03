@@ -6,15 +6,14 @@ document
       (document.body.className = e.target.checked ? "dark-mode" : "light-mode")
   );
 
-const circle = {
-  radius: 1,
-  location: {
-    x: 1,
-    y: 1,
-  },
-  draw: function () {
-    console.log("draw");
-  },
-};
+function createCircle(radius) {
+  return {
+    radius,
+    draw: function () {
+      console.log("draw");
+    },
+  };
+}
 
-circle.draw();
+const circle = createCircle(2);
+console.log(circle);
