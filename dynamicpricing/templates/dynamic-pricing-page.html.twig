@@ -1,0 +1,134 @@
+<style>
+
+* {
+  box-sizing: border-box;
+}
+.table {
+  font-size: 0.75rem; /* 12px */
+  th, td {
+    padding: 0.3rem; /* 5px */
+  }
+
+}
+
+.dynamic-pricing-container {
+  padding: 1rem; /* 16px */
+}
+
+
+
+
+</style>
+
+{# File: dynamic_pricing/templates/dynamic-pricing-page.html.twig #}
+{# navbar of SDGE pricing #}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SDGE Pricing</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing Plans</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid dynamic-pricing-container fs-6">  {# Mag-apply ng maliit na font size sa buong container #}
+  <h2 class="text-center mb-4">Dynamic Day Ahead Pricing</h2>
+
+  <div class="row">
+    
+    {# === TODAY TABLE === #}
+    {# Tinanggal ang p-0/m-0 sa col-md-6, masyado kasing dinidikit sa gilid. Gumamit lang ng mb-4 #}
+    <div class="col-sm-12 col-md-6 mb-4"> 
+      <h3 class="text-start fs-5 mb-0 me-2">Today</h3>
+      <p class="text-start text-muted mb-1">{{ today_date_display|date('F j, Y') }}</p>
+      
+      <div class="table-responsive">
+        {# fs-6: Para masiguro na maliit ang font size sa table #}
+        <table class="table table-hover table-bordered table-striped text-center fs-6"> 
+          <thead>
+            <tr class="table-secondary">
+                <th scope="col" colspan="3" class="text-center p-1"></th> {# p-1: Maliit na padding #}
+                <th scope="col" colspan="3" class="text-center bg-secondary p-1">Total Prices ($/KWh)</th>
+            </tr>
+            <tr class=" bg secondary">
+              {# Hour: Maliit lang, p-1: maliit na padding #}
+              <th scope="col" class="p-1 ">Hour</th> 
+              <th scope="col" class="p-1">CAISO Price</th>
+              <th scope="col" class="p-1">GCC Adder</th>
+              <th scope="col" class="p-1">Small</th>
+              <th scope="col" class="p-1">Medium</th>
+              <th scope="col" class="p-1">Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in today_data %}
+              <tr>
+                <td class="p-1">{{ item.time }}</td> {# p-1: Maliit na padding sa cells #}
+                <td class="p-1">{{ item.caiso_dep }}</td>
+                <td class="p-1">{{ item.gcc_adder }}</td>
+                <td class="p-1">{{ item.small }}</td>
+                <td class="p-1">{{ item.medium }}</td>
+                <td class="p-1">{{ item.large }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="6">No pricing data available for today.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {# === TOMORROW TABLE (Gayahin ang mga pagbabago sa taas) === #}
+    <div class="col-sm-12 col-md-6 mb-4"> 
+      <h3 class="text-start fs-5 mb-0 me-2">Tomorrow</h3>
+      <p class="text-start text-muted mb-1">{{ tomorrow_date_display|date('F j, Y') }}</p>
+
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped text-center fs-6"> 
+          <thead>
+             <tr class="table-secondary">
+                <th scope="col" colspan="3" class="text-center p-1"></th>
+                <th scope="col" colspan="3" class="text-center bg-secondary p-1">Total Prices ($/KWh)</th>
+            </tr>
+            <tr class="table-secondary">
+              <th scope="col" class="p-1">Hour</th>
+              <th scope="col" class="p-1">CAISO Price</th>
+              <th scope="col" class="p-1">GCC Adder</th>
+              <th scope="col" class="p-1">Small</th>
+              <th scope="col" class="p-1">Medium</th>
+              <th scope="col" class="p-1">Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in tomorrow_data %}
+              <tr>
+                <td class="p-1">{{ item.time }}</td>
+                <td class="p-1">{{ item.caiso_dep }}</td>
+                <td class="p-1">{{ item.gcc_adder }}</td>
+                <td class="p-1">{{ item.small }}</td>
+                <td class="p-1">{{ item.medium }}</td>
+                <td class="p-1">{{ item.large }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="6">No pricing data available for tomorrow.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

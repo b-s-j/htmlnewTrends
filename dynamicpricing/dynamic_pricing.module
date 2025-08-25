@@ -1,0 +1,31 @@
+<?php
+/**
+ * Implements hook_help().
+ */
+function dynamic_pricing_help($route_name, $route_parameters) {
+  switch ($route_name) {
+    case 'help.page.dynamic_pricing':
+      drupal_set_title(t('Dynamic Pricing'));
+      drupal_add_temporary_meta('description', t('Help page for the Dynamic Pricing module.'));
+      break;
+  }
+}
+/**
+ * Implements hook_theme().
+ */
+function dynamic_pricing_theme($existing, $type, $theme, $path) {
+  return [
+    // Ito pa rin ang #theme key na ginagamit sa Controller: 'dynamic_pricing_table'
+    'dynamic_pricing_table' => [
+      'variables' => [
+        'today_data' => [],      
+        'tomorrow_data' => [],
+        'today_date_display' => NULL,
+        'tomorrow_date_display' => NULL,
+      ],
+      // DITO KA NAG-CHANGE: Ito dapat ay tumutugma sa iyong filename
+      // (alisin lang ang .html.twig suffix)
+      'template' => 'dynamic-pricing-page', 
+    ],
+  ];
+}

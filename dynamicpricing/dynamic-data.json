@@ -1,0 +1,14 @@
+{
+    "fdata": [
+        {"date": "2025-08-24", "time": "12 AM - 1 AM", "caiso_dep": 56.728, "gcc_adder": "No", "small": 0.056728, "medium": 0.056728, "large": 0.056728},
+        {"date": "2025-08-24", "time": "1 AM - 2 AM", "caiso_dep": 53.816, "gcc_adder": "No", "small": 0.053816, "medium": 0.053816, "large": 0.053816},
+        {"date": "2025-08-25", "time": "12 AM - 1 AM", "caiso_dep": 55.000, "gcc_adder": "Yes", "small": 0.055000, "medium": 0.055000, "large": 0.055000},
+        {"date": "2025-08-25", "time": "1 AM - 2 AM", "caiso_dep": 52.123, "gcc_adder": "Yes", "small": 0.052123, "medium": 0.052123, "large": 0.052123},
+        {"date": "2025-08-25", "time": "2 AM - 3 AM", "caiso_dep": 50.000, "gcc_adder": "Yes", "small": 0.050000, "medium": 0.050000, "large": 0.050000},
+        {"date": "2025-08-25", "time": "3 AM - 4 AM", "caiso_dep": 48.000, "gcc_adder": "Yes", "small": 0.048000, "medium": 0.048000, "large": 0.048000},
+        {"date": "2025-08-25", "time": "4 AM - 5 AM", "caiso_dep": 46.000, "gcc_adder": "Yes", "small": 0.046000, "medium": 0.046000, "large": 0.046000},
+        {"date": "2025-08-25", "time": "5 AM - 6 AM", "caiso_dep": 44.000, "gcc_adder": "Yes", "small": 0.044000, "medium": 0.044000, "large": 0.044000},
+        {"date": "2025-08-25", "time": "6 AM - 7 AM", "caiso_dep": 42.000, "gcc_adder": "Yes", "small": 0.042000, "medium": 0.042000, "large": 0.042000},
+        {"date": "2025-08-25", "time": "7 AM - 8 AM", "caiso_dep": 40.000, "gcc_adder": "Yes", "small": 0.040000, "medium": 0.040000, "large": 0.040000}
+    ]
+}

@@ -1,0 +1,44 @@
+<?php 
+
+/**
+ * Implements hook_schema().
+ */
+function dynamic_pricing_schema() {
+  $schema['dynamic_pricing'] = [
+    'description' => 'Stores dynamic pricing data.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'time' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'caiso_dep' => [
+        'type' => 'float',
+        'not null' => TRUE,
+      ],
+      'gcc_adder' => [
+        'type' => 'float',
+        'not null' => TRUE,
+      ],
+      'small' => [
+        'type' => 'float',
+        'not null' => TRUE,
+      ],
+      'medium' => [
+        'type' => 'float',
+        'not null' => TRUE,
+      ],
+      'large' => [
+        'type' => 'float',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

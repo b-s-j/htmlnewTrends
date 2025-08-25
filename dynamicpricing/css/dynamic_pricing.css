@@ -1,0 +1,71 @@
+/* File: css/dynamic-pricing.css */
+
+/* 1. Global Font Size Reduction at Fixed Layout */
+.price-table {
+    /* Babawasan ang font size para magkasya ang text sa maliit na cells */
+    font-size: 0.75rem; 
+    
+    /* Pinipilit ang layout na maging fix (no automatic resizing based on content) */
+    table-layout: fixed; 
+    width: 100%;
+}
+
+/* 2. Bawasan ang Cell Padding */
+.price-table th,
+.price-table td {
+    /* Bawasan ang padding para masikip ang cells, ito ang nagre-reduce ng espasyo */
+    padding: 0.3rem !important; 
+    word-break: break-word; /* Siguraduhin na magbe-break ang long numbers */
+}
+
+/* 3. I-optimize ang Column Widths */
+.price-table thead th:nth-child(1),
+.price-table tbody td:nth-child(1) {
+    /* Hour Column: Maliit */
+    width: 15%; 
+}
+
+.price-table thead th:nth-child(2),
+.price-table tbody td:nth-child(2) {
+    /* CAISO Price Column */
+    width: 25%; /* Mas malaki kasi mas mahaba ang number */
+}
+
+.price-table thead th:nth-child(3),
+.price-table tbody td:nth-child(3) {
+    /* GCC Adder Column: Maliit, "Yes/No" lang */
+    width: 10%; 
+}
+
+/* Ang Small, Medium, Large Columns ay 16.66% bawat isa */
+.price-table thead th:nth-child(4),
+.price-table tbody td:nth-child(4),
+.price-table thead th:nth-child(5),
+.price-table tbody td:nth-child(5),
+.price-table thead th:nth-child(6),
+.price-table tbody td:nth-child(6) {
+    /* 50% ng natitirang space na hinati sa 3, o 16.66% ng 100% total */
+    width: 16.66%; 
+}
+
+/* 4. I-set ang Tamang Background Color (para maging katulad ng SDGE UI) */
+/* Batay sa SDGE UI, ang Total Prices header ay dark gray/black */
+.bg-secondary {
+    background-color: #343a40 !important; /* Dark color */
+    color: white !important;
+}
+.table-secondary {
+    background-color: #f8f9fa !important; /* Light gray */
+}
+
+/* 5. Alisin ang extra margin sa H3 at P tags (para maging masikip) */
+.col-md-6 h3,
+.col-md-6 p {
+    margin-bottom: 0.2rem !important;
+}
+
+/* Optional: Para mawala ang padding ng col-md-6 at maging dikit sa gilid */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
